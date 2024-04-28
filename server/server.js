@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const { createServer } = require("http");
 const { Server } = require("socket.io");
 
@@ -8,8 +10,7 @@ const serverPort = 3000;
 
 const io = new Server(httpServer, {
     cors: {
-        origin: 'http://' + process.env.CLIENT_URL + ':3001' || fixedClientURL,
-        methods: ["GET", "POST"]
+        origin: 'http://' + process.env.CLIENT_URL + ':3001' || fixedClientURL
     },
 });
 
