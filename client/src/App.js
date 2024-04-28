@@ -125,7 +125,7 @@ const App = () => {
 
 
   function connectToServer() {
-    const newSocket = io(process.env.REACT_APP_SERVER_URL || fixedServerURL, {
+    const newSocket = io('http://' + process.env.REACT_APP_SERVER_URL + ':3000' || fixedServerURL, {
       autoConnect: true,
     });
 
