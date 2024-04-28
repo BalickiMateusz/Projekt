@@ -12,4 +12,6 @@ fi
 
 git clone https://github.com/BalickiMateusz/Projekt.git /home/ec2-user/Projekt
 
+echo "\nREACT_APP_SERVER_URL=$(curl checkip.amazonaws.com)" | sudo tee -a /home/ec2-user/Projekt/client/.env > /dev/null
+
 sudo docker-compose -f /home/ec2-user/Projekt/docker-compose.yml up -d
