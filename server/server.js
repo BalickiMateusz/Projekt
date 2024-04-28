@@ -8,7 +8,7 @@ const serverPort = 3000;
 
 const io = new Server(httpServer, {
     cors: {
-        origin: process.env.CLIENT_URL || fixedClientURL,
+        origin: 'http://' + process.env.CLIENT_URL + ':3001' || fixedClientURL,
         methods: ["GET", "POST"]
     },
 });
