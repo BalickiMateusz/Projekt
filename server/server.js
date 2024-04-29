@@ -5,12 +5,12 @@ const { Server } = require("socket.io");
 
 const httpServer = createServer();
 
-const fixedClientURL = "http://localhost:3001";
+const fixedClientURL = "localhost";
 const serverPort = 3000;
 
 const io = new Server(httpServer, {
     cors: {
-        origin: 'http://' + process.env.CLIENT_URL + ':3001' || fixedClientURL
+        origin: `http://${process.env.CLIENT_URL || fixedClientURL}:${process.env.CLIENT_PORT || "3001"}`
     },
 });
 

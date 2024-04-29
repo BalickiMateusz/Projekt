@@ -10,7 +10,7 @@ const renderFrom = [
   [7, 8, 9],
 ];
 
-const fixedServerURL = "http://localhost:3000";
+const fixedServerURL = "localhost";
 
 const App = () => {
   const [gameState, setGameState] = useState(JSON.parse(JSON.stringify(renderFrom)));
@@ -125,7 +125,7 @@ const App = () => {
 
 
   function connectToServer() {
-    const newSocket = io('http://' + process.env.REACT_APP_SERVER_URL + ':3000' || fixedServerURL, {
+    const newSocket = io(`http://${process.env.REACT_APP_SERVER_URL || fixedServerURL}:${process.env.REACT_APP_SERVER_PORT || "3000"}`, {
       autoConnect: true,
     });
 
