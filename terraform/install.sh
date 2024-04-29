@@ -1,14 +1,13 @@
-#!/bin/bash
-yum update -y
-yum install -y yum-utils device-mapper-persistent-data lvm2 python3-pip git docker
+sudo yum update
+
+sudo yum install -y docker
+sudo yum install -y git
 
 systemctl start docker
 systemctl enable docker
 
-if [ ! -f "/usr/local/bin/docker-compose" ]; then
-    wget -q https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -O /usr/local/bin/docker-compose
-    chmod +x /usr/local/bin/docker-compose
-fi
+sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 
 git clone https://github.com/BalickiMateusz/Projekt.git /home/ec2-user/Projekt
 
